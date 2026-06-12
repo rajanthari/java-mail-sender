@@ -1,6 +1,7 @@
 package com.rajanthari.java.mail.sender.service;
 
 import com.rajanthari.java.mail.sender.config.MailConfiguration;
+import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -36,7 +37,7 @@ public class EmailService {
     }
     public void sendHtmlEmail(String to,
                               String subject,
-                              String htmlContent) throws Exception {
+                              String htmlContent) throws MessagingException {
 
         MimeMessage message = mailSender.createMimeMessage();
 
@@ -54,7 +55,7 @@ public class EmailService {
             String to,
             String subject,
             String body,
-            File file) throws Exception {
+            File file) throws MessagingException {
 
         MimeMessage message = mailSender.createMimeMessage();
 

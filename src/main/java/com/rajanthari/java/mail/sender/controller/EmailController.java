@@ -5,6 +5,7 @@ import com.rajanthari.java.mail.sender.service.EmailService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,7 +54,7 @@ public class EmailController {
             description = "Email sent successfully")
     @ApiResponse(responseCode = "400",
             description = "Invalid request")
-    public String sendHtmlMail() throws Exception {
+    public String sendHtmlMail() throws MessagingException {
 
         String html = """
                     <html>
@@ -80,7 +81,7 @@ public class EmailController {
             description = "Email sent successfully")
     @ApiResponse(responseCode = "400",
             description = "Invalid request")
-    public String sendMailWithAttachment() throws Exception {
+    public String sendMailWithAttachment() throws MessagingException {
 
         emailService.sendEmailWithAttachment(
                 "rajeshanthari@gmail.com",
