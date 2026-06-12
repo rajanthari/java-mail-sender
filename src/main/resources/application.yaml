@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: java-mail-sender
+  threads:
+    virtual:
+      enabled: true
+
+apps:
+  api:
+    receiver-mail: ${RECEIVER_EMAIL:receiver-email@gmail.com}
